@@ -16,10 +16,10 @@
         .card-back { transform: rotateY(180deg); }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800 font-sans h-screen flex flex-col">
+<body class="bg-gray-100 text-gray-800 font-sans min-h-screen flex flex-col">
 
     <!-- Header & Navigation -->
-    <header class="bg-blue-800 text-white p-4 shadow-md">
+    <header class="bg-blue-800 text-white p-4 shadow-md sticky top-0 z-50">
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-center">
             <h1 class="text-xl font-bold mb-4 sm:mb-0">Speaking: Meeting People</h1>
             <nav class="flex flex-wrap gap-2 text-sm justify-center">
@@ -33,15 +33,15 @@
     </header>
 
     <!-- Main Content Area -->
-    <main class="flex-grow flex items-center justify-center p-4 overflow-y-auto">
-        <div class="max-w-4xl w-full bg-white rounded-xl shadow-lg p-6 sm:p-10 border border-gray-200 my-auto">
+    <main class="flex-grow w-full p-4 sm:p-6 flex flex-col items-center">
+        <div class="max-w-4xl w-full bg-white rounded-xl shadow-lg p-6 sm:p-10 border border-gray-200 my-4 sm:my-8">
 
             <!-- PHASE 1: Survival Basics -->
             <div id="phase1" class="phase-section active-phase">
                 <h2 class="text-3xl font-bold text-blue-800 mb-2">Phase 1: Survival Basics</h2>
-                <p class="text-gray-600 mb-8 text-lg">Goal: Read the frames and introduce yourself to your partner.</p>
+                <p class="text-gray-600 mb-6 text-lg">Goal: Read the frames and introduce yourself to your partner.</p>
                 
-                <div class="grid sm:grid-cols-2 gap-4">
+                <div class="grid sm:grid-cols-2 gap-4 mb-6">
                     <div class="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500 col-span-full">
                         <h3 class="font-bold text-gray-500 mb-2 uppercase tracking-wide text-sm">Step 1: Greeting & Name</h3>
                         <p class="text-xl font-medium text-gray-800">"Hello. My name is <span class="border-b-2 border-gray-400 inline-block w-32"></span>."</p>
@@ -63,22 +63,46 @@
                     </div>
 
                     <div class="p-4 bg-teal-50 rounded-lg border-l-4 border-teal-500">
-                        <h3 class="font-bold text-gray-500 mb-2 uppercase tracking-wide text-sm">Step 5: Family</h3>
+                        <h3 class="font-bold text-gray-500 mb-2 uppercase tracking-wide text-sm">Step 5: Family & Pets</h3>
                         <p class="text-xl font-medium text-gray-800">"I am <span class="border-b-2 border-gray-400 inline-block w-40 text-center text-xs pt-1">single/married/in a relationship/widowed</span>."</p>
                         <p class="text-lg text-gray-600 mt-1">"I have <span class="border-b-2 border-gray-400 inline-block w-12"></span> kids."</p>
-                        <p class="text-lg text-gray-600 mt-1">"I have <span class="border-b-2 border-gray-400 inline-block w-12 text-center"></span> brothers and <span class="border-b-2 border-gray-400 inline-block w-12 text-center"></span> sisters."</p>
-                        <p class="text-lg text-gray-800 font-medium mt-2">"I have <span class="border-b-2 border-gray-400 inline-block w-24 text-center text-xs pt-1">a dog/no pets</span>."</p>
+                        <p class="text-lg text-gray-600 mt-1">"I have <span class="border-b-2 border-gray-400 inline-block w-12 text-center"></span> siblings 👦👧."</p>
+                        <p class="text-lg text-gray-800 font-medium mt-2">"I have <span class="border-b-2 border-gray-400 inline-block w-24 text-center text-xs pt-1">a dog/no pets</span> 🐶🐱."</p>
+                    </div>
+                </div>
+
+                <!-- Active Listening Moved to Phase 1 -->
+                <div class="border-t-2 border-dashed border-gray-300 pt-6 text-center">
+                    <h3 class="font-bold text-indigo-500 mb-3 uppercase tracking-wide text-sm">Listener Reactions (Don't stay silent!)</h3>
+                    <p class="text-gray-500 text-sm mb-3">When your partner speaks, use these words to show you are listening:</p>
+                    <div class="flex justify-center gap-4 flex-wrap">
+                        <span class="bg-indigo-50 border border-indigo-200 px-4 py-2 rounded-full font-bold text-indigo-700 shadow-sm">"Oh, nice!"</span>
+                        <span class="bg-indigo-50 border border-indigo-200 px-4 py-2 rounded-full font-bold text-indigo-700 shadow-sm">"Me too!"</span>
+                        <span class="bg-indigo-50 border border-indigo-200 px-4 py-2 rounded-full font-bold text-indigo-700 shadow-sm">"Wow!"</span>
                     </div>
                 </div>
             </div>
 
             <!-- PHASE 2: Questions -->
             <div id="phase2" class="phase-section hidden-phase">
-                <h2 class="text-3xl font-bold text-blue-800 mb-2">Phase 2: The Question Flip</h2>
-                <p class="text-gray-600 mb-8 text-lg">Goal: Click the cards to see how to ask questions. Practice A/B dialogues.</p>
+                <h2 class="text-3xl font-bold text-blue-800 mb-6">Phase 2: The Question Flip</h2>
 
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                    <div class="card-flip h-32" onclick="this.classList.toggle('flipped')">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <!-- Opening -->
+                    <div class="card-flip h-36" onclick="this.classList.toggle('flipped')">
+                        <div class="card-inner">
+                            <div class="card-front bg-gray-100 flex items-center justify-center rounded-xl border-2 border-gray-300 p-2 text-center">
+                                <p class="text-xl font-bold text-gray-800">Opening</p>
+                            </div>
+                            <div class="card-back bg-gray-600 text-white flex flex-col items-center justify-center rounded-xl p-2 text-center">
+                                <p class="text-2xl font-bold">"Hello!"</p>
+                                <p class="text-sm font-bold text-gray-300 my-1">OR</p>
+                                <p class="text-2xl font-bold">"Hi!"</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Name -->
+                    <div class="card-flip h-36" onclick="this.classList.toggle('flipped')">
                         <div class="card-inner">
                             <div class="card-front bg-blue-100 flex items-center justify-center rounded-xl border-2 border-blue-300 p-2 text-center">
                                 <p class="text-xl font-bold text-blue-800">Ask for Name</p>
@@ -88,7 +112,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-flip h-32" onclick="this.classList.toggle('flipped')">
+                    <!-- Location -->
+                    <div class="card-flip h-36" onclick="this.classList.toggle('flipped')">
                         <div class="card-inner">
                             <div class="card-front bg-green-100 flex items-center justify-center rounded-xl border-2 border-green-300 p-2 text-center">
                                 <p class="text-xl font-bold text-green-800">Ask for Location</p>
@@ -98,7 +123,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-flip h-32" onclick="this.classList.toggle('flipped')">
+                    <!-- Job -->
+                    <div class="card-flip h-36" onclick="this.classList.toggle('flipped')">
                         <div class="card-inner">
                             <div class="card-front bg-purple-100 flex items-center justify-center rounded-xl border-2 border-purple-300 p-2 text-center">
                                 <p class="text-xl font-bold text-purple-800">Ask for a Job</p>
@@ -108,7 +134,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-flip h-32" onclick="this.classList.toggle('flipped')">
+                    <!-- Age -->
+                    <div class="card-flip h-36" onclick="this.classList.toggle('flipped')">
                         <div class="card-inner">
                             <div class="card-front bg-pink-100 flex items-center justify-center rounded-xl border-2 border-pink-300 p-2 text-center">
                                 <p class="text-xl font-bold text-pink-800">Ask for Age</p>
@@ -118,20 +145,32 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-flip h-32" onclick="this.classList.toggle('flipped')">
+                    <!-- Family -->
+                    <div class="card-flip h-36" onclick="this.classList.toggle('flipped')">
                         <div class="card-inner">
                             <div class="card-front bg-teal-100 flex items-center justify-center rounded-xl border-2 border-teal-300 p-2 text-center">
                                 <p class="text-xl font-bold text-teal-800">Ask about Family</p>
                             </div>
                             <div class="card-back bg-teal-600 text-white flex flex-col items-center justify-center rounded-xl p-2 text-center">
-                                <p class="text-sm font-bold">"Are you married?"</p>
-                                <p class="text-sm font-bold mt-1">"Do you have kids?"</p>
-                                <p class="text-sm font-bold mt-1">"Do you have siblings?"</p>
-                                <p class="text-sm font-bold mt-2 text-yellow-300">"Do you have any pets?"</p>
+                                <p class="text-sm font-bold mb-2">"Are you married?"</p>
+                                <p class="text-sm font-bold">"Do you have kids?"</p>
                             </div>
                         </div>
                     </div>
-                    <div class="card-flip h-32" onclick="this.classList.toggle('flipped')">
+                    <!-- Siblings & Pets -->
+                    <div class="card-flip h-36" onclick="this.classList.toggle('flipped')">
+                        <div class="card-inner">
+                            <div class="card-front bg-yellow-100 flex items-center justify-center rounded-xl border-2 border-yellow-300 p-2 text-center">
+                                <p class="text-lg font-bold text-yellow-800 leading-tight">Ask about Pets & Siblings</p>
+                            </div>
+                            <div class="card-back bg-yellow-600 text-white flex flex-col items-center justify-center rounded-xl p-2 text-center">
+                                <p class="text-sm font-bold mb-2">"Do you have siblings?"</p>
+                                <p class="text-sm font-bold">"Do you have any pets?"</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Close -->
+                    <div class="card-flip h-36" onclick="this.classList.toggle('flipped')">
                         <div class="card-inner">
                             <div class="card-front bg-orange-100 flex items-center justify-center rounded-xl border-2 border-orange-300 p-2 text-center">
                                 <p class="text-xl font-bold text-orange-800">Close</p>
@@ -147,9 +186,18 @@
             <!-- PHASE 3: Roleplay -->
             <div id="phase3" class="phase-section hidden-phase text-center">
                 <h2 class="text-3xl font-bold text-blue-800 mb-2">Phase 3: The Persona Play</h2>
-                <p class="text-gray-600 mb-6 text-lg">Goal: Stop using your real name! Generate a new identity.</p>
+                <p class="text-gray-600 mb-4 text-lg">Goal: Stop using your real name. Become this new person and introduce yourself to your partner!</p>
                 
-                <div id="identity-card" class="bg-gray-50 border-4 border-dashed border-gray-300 p-6 rounded-2xl max-w-md mx-auto mb-6 shadow-inner min-h-[220px] flex flex-col justify-center">
+                <!-- Explicit Action Plan for Pair Work -->
+                <div class="mb-6 bg-blue-50 border-l-4 border-blue-500 p-4 rounded shadow-sm text-left max-w-md mx-auto">
+                    <h3 class="font-bold text-blue-800 uppercase tracking-wide mb-2 text-sm">Action Plan:</h3>
+                    <div class="space-y-3 text-blue-900 font-medium text-sm">
+                        <p><strong>Part 1: The Intro (Sitting)</strong><br>Stay seated with your partner. Introduce your new self.</p>
+                        <p><strong>Part 2: The Interview (Stand up!)</strong><br>Stand up, find a NEW partner. Ask them ALL the questions from Phase 2. They answer using their identity. Then swap roles!</p>
+                    </div>
+                </div>
+
+                <div id="identity-card" class="bg-gray-50 border-4 border-dashed border-gray-300 p-6 rounded-2xl max-w-md mx-auto mb-6 shadow-inner min-h-[250px] flex flex-col justify-center">
                     <p class="text-gray-400 italic">Click the button below to get your new identity...</p>
                 </div>
 
@@ -160,7 +208,7 @@
                 <!-- TEACHER TOOLS: File Upload -->
                 <div class="mt-8 pt-6 border-t border-gray-200 text-left bg-gray-50 p-4 rounded-lg">
                     <h4 class="text-sm font-bold text-gray-500 uppercase mb-2">Teacher Tools: Load Custom Personas</h4>
-                    <p class="text-xs text-gray-500 mb-3">Format .txt file strictly as: <span class="font-mono bg-gray-200 px-1">Name, Age, City, Job, Status, Kids, Siblings, Pets</span> (one per line).</p>
+                    <p class="text-xs text-gray-500 mb-3">Format .txt file strictly as: <span class="font-mono bg-gray-200 px-1">Name, Age, Location, Job, Status, Kids, Siblings, Pets</span> (one per line).</p>
                     <input type="file" id="personaFile" accept=".txt" class="text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" onchange="handleFileUpload(event)">
                     <p id="uploadStatus" class="text-sm text-green-600 font-bold mt-2 hidden"></p>
                 </div>
@@ -169,56 +217,57 @@
             <!-- PHASE 4: The Mixer -->
             <div id="phase4" class="phase-section hidden-phase">
                 <h2 class="text-3xl font-bold text-blue-800 mb-2">Phase 4: The Party Mixer</h2>
-                <p class="text-gray-600 mb-6 text-lg">Goal: Stand up. Find someone who matches these descriptions. Try without the hint first!</p>
+                <p class="text-gray-600 mb-4 text-lg">Goal: Stand up! Find someone who matches these descriptions. Ask them the questions below.</p>
+                
+                <div class="mb-6 bg-indigo-50 border-l-4 border-indigo-500 p-3 rounded shadow-sm sm:flex items-center justify-between">
+                    <p class="text-indigo-800 font-bold text-sm uppercase tracking-wide mb-1 sm:mb-0">👂 Active Listening Check:</p>
+                    <p class="text-indigo-700 text-sm">Don't forget to reply with <strong>"Oh, nice!"</strong> or <strong>"Me too!"</strong></p>
+                </div>
                 
                 <div class="bg-white border-2 border-gray-800 rounded-lg overflow-hidden">
                     <table class="w-full text-left border-collapse">
                         <thead>
                             <tr class="bg-gray-800 text-white">
                                 <th class="p-3 border-b-2 border-gray-800 text-lg w-2/3">Find someone who...</th>
-                                <th class="p-3 border-b-2 border-gray-800 text-lg border-l-2">Name</th>
+                                <th class="p-3 border-b-2 border-gray-800 text-lg border-l-2">Write Name</th>
                             </tr>
                         </thead>
                         <tbody class="text-base">
                             <tr>
-                                <td class="p-3 border-b border-gray-300">
-                                    <div class="flex justify-between items-center">
-                                        <span class="font-medium">... is from Montreal.</span>
-                                        <button onclick="toggleHint('hint1')" class="text-xs bg-indigo-100 text-indigo-800 font-bold py-1 px-2 rounded-full">Hint 💡</button>
-                                    </div>
-                                    <div id="hint1" class="hidden mt-2 p-2 bg-indigo-50 border-l-4 border-indigo-500 rounded text-indigo-700 font-bold">"Are you from Montreal?"</div>
+                                <td class="p-4 border-b border-gray-300">
+                                    <p class="font-bold text-gray-800 text-lg mb-1">... is from Brazil or Canada.</p>
+                                    <p class="text-indigo-600 font-medium text-sm bg-indigo-50 inline-block px-2 py-1 rounded">🗣️ Ask: "Where are you from?"</p>
                                 </td>
-                                <td class="p-3 border-b border-l-2 border-gray-300"></td>
+                                <td class="p-4 border-b border-l-2 border-gray-300">
+                                    <input type="text" class="w-full bg-transparent border-b-2 border-gray-300 focus:border-indigo-500 outline-none text-center font-bold text-indigo-700 p-1" placeholder="Name...">
+                                </td>
                             </tr>
                             <tr class="bg-gray-50">
-                                <td class="p-3 border-b border-gray-300">
-                                    <div class="flex justify-between items-center">
-                                        <span class="font-medium">... is married.</span>
-                                        <button onclick="toggleHint('hint2')" class="text-xs bg-indigo-100 text-indigo-800 font-bold py-1 px-2 rounded-full">Hint 💡</button>
-                                    </div>
-                                    <div id="hint2" class="hidden mt-2 p-2 bg-indigo-50 border-l-4 border-indigo-500 rounded text-indigo-700 font-bold">"Are you married?"</div>
+                                <td class="p-4 border-b border-gray-300">
+                                    <p class="font-bold text-gray-800 text-lg mb-1">... is married.</p>
+                                    <p class="text-indigo-600 font-medium text-sm bg-indigo-50 inline-block px-2 py-1 rounded">🗣️ Ask: "Are you married?"</p>
                                 </td>
-                                <td class="p-3 border-b border-l-2 border-gray-300"></td>
+                                <td class="p-4 border-b border-l-2 border-gray-300">
+                                    <input type="text" class="w-full bg-transparent border-b-2 border-gray-300 focus:border-indigo-500 outline-none text-center font-bold text-indigo-700 p-1" placeholder="Name...">
+                                </td>
                             </tr>
                             <tr>
-                                <td class="p-3 border-b border-gray-300">
-                                    <div class="flex justify-between items-center">
-                                        <span class="font-medium">... has children.</span>
-                                        <button onclick="toggleHint('hint3')" class="text-xs bg-indigo-100 text-indigo-800 font-bold py-1 px-2 rounded-full">Hint 💡</button>
-                                    </div>
-                                    <div id="hint3" class="hidden mt-2 p-2 bg-indigo-50 border-l-4 border-indigo-500 rounded text-indigo-700 font-bold">"Do you have children?"</div>
+                                <td class="p-4 border-b border-gray-300">
+                                    <p class="font-bold text-gray-800 text-lg mb-1">... has children.</p>
+                                    <p class="text-indigo-600 font-medium text-sm bg-indigo-50 inline-block px-2 py-1 rounded">🗣️ Ask: "Do you have children?"</p>
                                 </td>
-                                <td class="p-3 border-b border-l-2 border-gray-300"></td>
+                                <td class="p-4 border-b border-l-2 border-gray-300">
+                                    <input type="text" class="w-full bg-transparent border-b-2 border-gray-300 focus:border-indigo-500 outline-none text-center font-bold text-indigo-700 p-1" placeholder="Name...">
+                                </td>
                             </tr>
                             <tr class="bg-gray-50">
-                                <td class="p-3 border-gray-300">
-                                    <div class="flex justify-between items-center">
-                                        <span class="font-medium">... is a student.</span>
-                                        <button onclick="toggleHint('hint4')" class="text-xs bg-indigo-100 text-indigo-800 font-bold py-1 px-2 rounded-full">Hint 💡</button>
-                                    </div>
-                                    <div id="hint4" class="hidden mt-2 p-2 bg-indigo-50 border-l-4 border-indigo-500 rounded text-indigo-700 font-bold">"Are you a student?"</div>
+                                <td class="p-4 border-b border-gray-300">
+                                    <p class="font-bold text-gray-800 text-lg mb-1">... has a dog.</p>
+                                    <p class="text-indigo-600 font-medium text-sm bg-indigo-50 inline-block px-2 py-1 rounded">🗣️ Ask: "Do you have any pets?"</p>
                                 </td>
-                                <td class="p-3 border-l-2 border-gray-300"></td>
+                                <td class="p-4 border-b border-l-2 border-gray-300">
+                                    <input type="text" class="w-full bg-transparent border-b-2 border-gray-300 focus:border-indigo-500 outline-none text-center font-bold text-indigo-700 p-1" placeholder="Name...">
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -262,14 +311,16 @@
                         <p class="text-xl mb-3">"<span class="text-yellow-400 font-bold">His/Her</span> name is <span class="border-b-2 border-gray-500 inline-block w-24"></span>."</p>
                         <p class="text-xl mb-3">"<span class="text-yellow-400 font-bold">He/She</span> is from <span class="border-b-2 border-gray-500 inline-block w-24"></span>."</p>
                         <p class="text-xl mb-3">"<span class="text-yellow-400 font-bold">He/She</span> is a <span class="border-b-2 border-gray-500 inline-block w-24"></span>."</p>
-                        <p class="text-xl mb-3">"<span class="text-yellow-400 font-bold">He/She</span> has <span class="border-b-2 border-gray-500 inline-block w-12"></span> kids."</p>
-                        <p class="text-xl">"<span class="text-yellow-400 font-bold">He/She</span> has <span class="border-b-2 border-gray-500 inline-block w-24"></span> (pets)."</p>
+                        <p class="text-xl mb-3">"<span class="text-yellow-400 font-bold">He/She</span> has <span class="border-b-2 border-gray-500 inline-block w-12 text-center"></span> kids."</p>
+                        <p class="text-xl mb-3">"<span class="text-yellow-400 font-bold">He/She</span> has <span class="border-b-2 border-gray-500 inline-block w-12 text-center"></span> siblings."</p>
+                        <p class="text-xl">"<span class="text-yellow-400 font-bold">He/She</span> has <span class="border-b-2 border-gray-500 inline-block w-24 text-center"></span>." <span class="text-xs text-gray-400">(pets)</span></p>
                     </div>
                 </div>
 
                 <!-- Active Listening Bonus -->
                 <div class="mt-6 border-t-2 border-dashed border-gray-300 pt-6 text-center">
-                    <h3 class="font-bold text-gray-500 mb-3 uppercase tracking-wide">Listener Reactions (Don't stay silent!)</h3>
+                    <h3 class="font-bold text-red-600 mb-2 uppercase tracking-wide">🚨 Don't forget your reactions!</h3>
+                    <p class="text-gray-600 text-sm mb-4">The listener must respond. Do not stay silent when your partner introduces you.</p>
                     <div class="flex justify-center gap-4 flex-wrap">
                         <span class="bg-gray-100 px-4 py-2 rounded-full font-bold text-gray-700 shadow-sm">"Oh, nice!"</span>
                         <span class="bg-gray-100 px-4 py-2 rounded-full font-bold text-gray-700 shadow-sm">"Me too!"</span>
@@ -280,6 +331,18 @@
 
         </div>
     </main>
+
+    <!-- Branding Footer -->
+    <footer class="bg-slate-800 text-white py-6 border-t-4 border-blue-600 shrink-0">
+        <div class="max-w-5xl mx-auto px-4 flex flex-col items-center justify-center text-center">
+            <h2 class="text-lg font-extrabold tracking-wide uppercase text-blue-300">Académie d'anglais interactif</h2>
+            <p class="text-sm font-medium italic text-gray-300 mt-1">Arrêtez de mémoriser. Commencez à parler.</p>
+            <div class="mt-3 bg-slate-700 px-4 py-1 rounded-full border border-slate-600 flex items-center gap-2 transition hover:bg-slate-600">
+                <span class="text-lg">✉️</span>
+                <a href="mailto:elessons14@gmail.com" class="text-sm text-blue-200 hover:text-white font-bold">elessons14@gmail.com</a>
+            </div>
+        </div>
+    </footer>
 
     <script>
         // Phase Navigation Logic
@@ -312,16 +375,16 @@
 
         // Identity Generator Logic (Phase 3)
         const defaultNames = ["Maria", "Wei", "Ahmed", "Sophie", "Carlos", "Fatima", "Yuki", "David", "Elena", "Omar", "Francisco", "Raphael"];
-        const defaultCities = ["Tokyo", "Paris", "Mexico City", "Cairo", "London", "Toronto", "Seoul", "Berlin", "Dubai", "Lima", "Sherbrooke"];
-        const defaultJobs = ["Doctor", "Teacher", "Chef","Artist", "Driver", "Student", "Engineer", "Artist", "Manager", "Farmer", "Musician", "Student", "Police man"];
+        const defaultLocations = ["Brazil", "Canada", "Mexico", "Morocco", "Colombia", "France", "Japan", "Sherbrooke", "Montreal", "Toronto"];
+        const defaultJobs = ["Doctor", "Teacher", "Chef", "Driver", "Student", "Engineer", "Artist", "Manager", "Farmer", "Musician", "Student"];
         const defaultAges = [22, 28, 35, 42, 50, 58, 63, 68, 72, 75, 19, 38];
-        const defaultStatuses = ["Widowed","Single", "Married", "Widowed", "Married", "Divorced", "Single", "In a relationship", "In a relationship",  "In a relationship"];
+        const defaultStatuses = ["Single", "Married", "Married", "Divorced", "Single", "In a relationship"];
         const defaultKids = ["0", "1", "2", "3", "0", "6", "8"];
         const defaultSiblings = ["0", "1", "2", "3", "0", "4", "5"];
-        const defaultPets = ["a dog", "a cat", "two rabbits", "two dogs", "a bird", "no pets", "a fish"];
+        const defaultPets = ["a dog", "a cat", "no pets", "two dogs", "a bird", "no pets", "a fish"];
         
         // Separate arrays for custom uploads to allow mixing and matching
-        let customNames = [], customAges = [], customCities = [], customJobs = [], customStatuses = [], customKids = [], customSiblings = [], customPets = [];
+        let customNames = [], customAges = [], customLocations = [], customJobs = [], customStatuses = [], customKids = [], customSiblings = [], customPets = [];
 
         // File Upload Handler
         function handleFileUpload(event) {
@@ -331,20 +394,19 @@
             const reader = new FileReader();
             reader.onload = function(e) {
                 const text = e.target.result;
-                // Use regex to split by actual newlines across all operating systems
                 const lines = text.split(/\r?\n/);
                 
                 // Clear old customs
-                customNames = []; customAges = []; customCities = []; customJobs = []; customStatuses = []; customKids = []; customSiblings = []; customPets = [];
+                customNames = []; customAges = []; customLocations = []; customJobs = []; customStatuses = []; customKids = []; customSiblings = []; customPets = [];
                 
                 let loadedCount = 0;
                 lines.forEach(line => {
                     const parts = line.split(',').map(item => item.trim());
-                    // Expecting 8 columns now: Name, Age, City, Job, Status, Kids, Siblings, Pets
+                    // Expecting 8 columns now: Name, Age, Location, Job, Status, Kids, Siblings, Pets
                     if (parts.length >= 8 && parts[0] !== "") {
                         customNames.push(parts[0]);
                         customAges.push(parts[1]);
-                        customCities.push(parts[2]);
+                        customLocations.push(parts[2]);
                         customJobs.push(parts[3]);
                         customStatuses.push(parts[4]);
                         customKids.push(parts[5]);
@@ -362,22 +424,20 @@
         }
 
         function generateIdentity() {
-            let name, city, job, age, status, kids, siblings, pets;
+            let name, location, job, age, status, kids, siblings, pets;
 
             if (customNames.length > 0) {
-                // Mix and match from uploaded lists independently
                 name = customNames[Math.floor(Math.random() * customNames.length)];
                 age = customAges[Math.floor(Math.random() * customAges.length)];
-                city = customCities[Math.floor(Math.random() * customCities.length)];
+                location = customLocations[Math.floor(Math.random() * customLocations.length)];
                 job = customJobs[Math.floor(Math.random() * customJobs.length)];
                 status = customStatuses[Math.floor(Math.random() * customStatuses.length)];
                 kids = customKids[Math.floor(Math.random() * customKids.length)];
                 siblings = customSiblings[Math.floor(Math.random() * customSiblings.length)];
                 pets = customPets[Math.floor(Math.random() * customPets.length)];
             } else {
-                // Fallback to random hardcoded generation
                 name = defaultNames[Math.floor(Math.random() * defaultNames.length)];
-                city = defaultCities[Math.floor(Math.random() * defaultCities.length)];
+                location = defaultLocations[Math.floor(Math.random() * defaultLocations.length)];
                 job = defaultJobs[Math.floor(Math.random() * defaultJobs.length)];
                 age = defaultAges[Math.floor(Math.random() * defaultAges.length)];
                 status = defaultStatuses[Math.floor(Math.random() * defaultStatuses.length)];
@@ -391,32 +451,20 @@
             const siblingsWord = siblings === "1" ? "sibling" : "siblings";
 
             const cardHtml = `
-                <div class="text-left space-y-2 w-full px-4">
+                <div class="text-left space-y-3 w-full px-4 border-l-4 border-indigo-400 pl-4 bg-white p-4 rounded shadow-sm">
                     <p class="text-xl"><span class="font-bold text-gray-500">Name:</span> <span class="font-bold text-indigo-700">${name}</span></p>
                     <p class="text-xl"><span class="font-bold text-gray-500">Age:</span> <span class="font-bold text-indigo-700">${age}</span></p>
-                    <p class="text-xl"><span class="font-bold text-gray-500">City:</span> <span class="font-bold text-indigo-700">${city}</span></p>
+                    <p class="text-xl"><span class="font-bold text-gray-500">From:</span> <span class="font-bold text-indigo-700">${location}</span></p>
                     <p class="text-xl"><span class="font-bold text-gray-500">Job:</span> <span class="font-bold text-indigo-700">${job}</span></p>
                     <p class="text-xl"><span class="font-bold text-gray-500">Family:</span> <span class="font-bold text-indigo-700">${status}, ${kids} ${kidsWord}, ${siblings} ${siblingsWord}</span></p>
                     <p class="text-xl"><span class="font-bold text-gray-500">Pets:</span> <span class="font-bold text-indigo-700 text-yellow-600">${pets}</span></p>
-                    <div class="mt-4 p-3 bg-indigo-50 border-l-4 border-indigo-500 text-sm">
-                        <strong>Task:</strong> Go to a partner. Use this identity!
-                    </div>
+                </div>
+                <div class="mt-4 p-3 bg-red-50 border-l-4 border-red-500 text-sm font-bold text-red-800">
+                    ⚠️ Don't show your screen to your partner. 
                 </div>
             `;
             
             document.getElementById('identity-card').innerHTML = cardHtml;
-        }
-
-        // Hint Toggle Logic (Phase 4)
-        function toggleHint(hintId) {
-            const hintElement = document.getElementById(hintId);
-            if (hintElement.classList.contains('hidden')) {
-                hintElement.classList.remove('hidden');
-                hintElement.classList.add('block');
-            } else {
-                hintElement.classList.remove('block');
-                hintElement.classList.add('hidden');
-            }
         }
     </script>
 </body>
